@@ -7,9 +7,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var addCmd = &cobra.Command{
-	Use:   "add",
-	Short: "Add your numbers in here",
+var substractCmd = &cobra.Command{
+	Use:   "reduce",
+	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -17,23 +17,27 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		addFloat(args)
+		substractFloat(args)
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(addCmd)
+	rootCmd.AddCommand(substractCmd)
 }
 
-func addFloat(arg []string) {
-	var res float64
+func substractFloat(arg []string){
+	first,_ := strconv.ParseFloat(arg[0],64)
+	res := first
 
-	for _, v := range arg {
-		i,_ := strconv.ParseFloat(v,64)
-		res += i 
+	for _,i := range arg {
+
+		if i == arg[0]{
+			continue
+		}
+		
+		a,_ := strconv.ParseFloat(i,64)
+		res -= a
 	}
 
 	fmt.Printf("Result %v \n",res)
 }
-
-
