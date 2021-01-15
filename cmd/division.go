@@ -6,10 +6,10 @@ import (
 
 	"github.com/spf13/cobra"
 )
-var tes bool
 
-var substractCmd = &cobra.Command{
-	Use:   "reduce",
+// divisionCmd represents the division command
+var divisionCmd = &cobra.Command{
+	Use:   "divide",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -18,28 +18,27 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// fmt.Printf("%v",tes)
-		substractFloat(args)
+		divideFloat(args)
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(substractCmd)
-	// substractCmd.Flags().BoolVarP(&tes,"bool","b",false,"this false")
+	rootCmd.AddCommand(divisionCmd)
 }
 
-func substractFloat(arg []string){
-	first,_ := strconv.ParseFloat(arg[0],64)
-	res := first
+func divideFloat(arg []string){
+	a,_ := strconv.ParseFloat(arg[0],64)
+	res := a
 
-	for _,i := range arg {
+	for i := range arg {
 
-		if i == arg[0]{
+		j,_ := strconv.ParseFloat(arg[i],64)
+
+		if j == a{
 			continue
 		}
-		
-		a,_ := strconv.ParseFloat(i,64)
-		res -= a
+
+		res /= j
 	}
 
 	fmt.Printf("Result %v \n",res)
