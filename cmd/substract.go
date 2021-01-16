@@ -10,7 +10,7 @@ var tes bool
 
 var substractCmd = &cobra.Command{
 	Use:   "reduce",
-	Short: "A brief description of your command",
+	Short: "Reduce your number in here",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
