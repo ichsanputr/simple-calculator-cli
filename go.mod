@@ -1,4 +1,4 @@
-module cli-calc
+module github.com/ichsanputr/simple-calculator-cli
 
 go 1.15
 
